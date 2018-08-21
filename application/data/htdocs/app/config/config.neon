@@ -1,0 +1,55 @@
+php:
+	date.timezone: Europe/Prague
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+session:
+	expiration: 14 days
+	savePath: "%tempDir%/sessions"
+
+
+extensions:
+    console: Kdyby\Console\DI\ConsoleExtension
+    events: Kdyby\Events\DI\EventsExtension
+    annotations: Kdyby\Annotations\DI\AnnotationsExtension
+    doctrine: Kdyby\Doctrine\DI\OrmExtension
+    nextras.form: Nextras\Forms\Bridges\NetteDI\FormsExtension
+    translation: Kdyby\Translation\DI\TranslationExtension
+
+translation:
+	default: cs
+	fallback: [cs_CZ, cs]
+
+doctrine:
+    user: doctrine
+    password: doctrine
+    dbname: doctrine
+    host: server
+    driver: pdo_pgsql
+    metadata:
+        App: %appDir%
+tracy:
+    bar:
+        - NetteExtras\XDebugHelper(phpstorm)
+
+services:
+    router: App\RouterFactory::createRouter
+    authenticator: App\Model\Authenticator
+
+    fluentListener:
+        class: App\Listeners\FluentListener
+        tags: [kdyby.subscriber]
+    cacheStorage:
+        class: Nette\Caching\Storages\NewMemcachedStorage(memcached)
+
+    - App\Forms\FormFactory
+    - App\Forms\ISignFormFactory
+    - App\Forms\PasswdFormFactory
+
+    - App\Grids\GridFactory
+    - App\Grids\UserGridFactory
+
+    - App\Model\Services\UsersService

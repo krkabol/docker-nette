@@ -1,0 +1,5 @@
+doctrine:
+    user: nette
+    password: nette
+    dbname: nette
+    host: postgres

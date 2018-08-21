@@ -1,0 +1,15 @@
+{
+  "name": "krkabol_docker-nette",
+  "dependencies": {
+    "components-font-awesome":">=4",
+    "bootstrap-css-only": "=3",
+    "ublaboo-datagrid": ">= 5"
+  },
+  "install" : {
+    "path": {
+      "css": "css_vendor",
+      "js": "js_vendor"
+    }
+  },
+  "private": true
+}

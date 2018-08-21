@@ -1,0 +1,54 @@
+app:
+    error:
+        flash: "Aplikace oznámila chybu"
+        apology: "Pokud se domníváte, že je chyba na straně aplikace, zašlete prosím popis aktivity vedoucí k této chybě tak, aby se dala pokud možno zreprodukovat, děkujeme Vám. Omlouváme se za způsobené komplikace."
+        4xx: "Váš prohlížeč zaslal požadavek který server nerozpoznal nebo jej neumí obsloužit."
+        403: "Nemáte oprávnění k zobrazení této stránky."
+        404: "Vámi požadovanou stránku nelze nalézt. Je pravděpodobné, že je chybně uvedená adresa stránky, nebo hledaná stránka již opravdu neexistuje."
+        405: "Metoda není povolena."
+        410: "Stránka kterou hledáte byla trvale zrušena."
+    sign:
+        in: "Přihlašte se..."
+        out: "Byl(a) jste odhlášen(a)."
+        signOut: "Odhlásit se"
+        missing: "Musíte se přihlásit."
+        unknown: "Neznámý uživatel."
+        wrongpasswd: "Chybné heslo."
+    name: "Aplikace"
+    toggleNav: "Přepnout menu"
+
+
+homepage:
+    title: "Domovská stránka"
+    info: "Hotovo, běží tu Nette v Docker kontaineru :-)"
+
+data:
+    title: "Vkládání dat"
+    info: "..nějaká funkcionalita aplikace"
+
+user:
+    title: "Správa uživatelů"
+    passwd:
+        title: "Změnit heslo"
+        changed: "Heslo změněno"
+        current: "Zadejte současné heslo"
+        currentLabel: "Současné heslo"
+        newLabel: "Nové heslo"
+        new: "Zadejte nové heslo"
+        new2Label: "Nově heslo - potvrzení"
+        new2: "Zadejte své nové heslo pro kontrolu podruhé"
+        send: "Změnit"
+        notEqual: "Nová hesla se neshodují."
+        notVerified: "Nesouhlasí současné heslo."
+    grid:
+        name: "Jméno"
+        surname: "Příjmení"
+        email: "Email"
+        role: "Role"
+        deleted: "Deaktivovaný"
+        resetPasswd: "Resetovat heslo"
+        resetPasswdConfirm: "Opravdu resetovat heslo?"
+        editSuccess: "Uživatel %s upraven."
+        editError: "Nebylo možné upravit uživatele: "
+        changeRoleSuccess: "Role uživatele %s byla změněna."
+        changeRoleError: "Nebylo možné změnit roli uživatele."

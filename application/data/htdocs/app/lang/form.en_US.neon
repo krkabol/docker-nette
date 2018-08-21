@@ -1,0 +1,10 @@
+sign:
+     email:
+         required: 'Please fill your email'
+         label: "Email"
+     passwd:
+         required: 'Please fill your password.'
+         label: "Password"
+     send: "Log in"
+     remember: "Remember me"
+     heading: "Please log in"

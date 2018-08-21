@@ -1,0 +1,44 @@
+app:
+    error:
+        flash: "An error occured"
+        apology: "Please try contact the web site administrator if you believe you should be able to view this page, it would be useful describe activity ending with this failure. We apologize for any inconvenience."
+        4xx: "Your browser sent a request that this server could not understand or process."
+        403: "You do not have permission to view this page. "
+        404: "The page you requested could not be found. It is possible that the address is incorrect, or that the page no longer exists. Please use a search engine to find what you are looking for."
+        405: "The requested method is not allowed for the URL."
+        410: "The page you requested has been taken off the site."
+    sign:
+        in: "Log in..."
+        out: "You was succesfully logged out"
+        signOut: "Log out"
+        missing: "You have to log in"
+        unknown: "Unknown user"
+        wrongpasswd: "Wrong password"
+    name: "App"
+    toggleNav: "Toggle navigation"
+
+
+homepage:
+    title: "Homepage"
+    info: "It's done - you are runnig Nette in Docker container :-)"
+
+data:
+    title: "Data"
+    info: "..some functionality of your app"
+
+user:
+    title: "Users management"
+    passwd:
+        title: "Change password"
+        changed: "Password changed"
+        current: "Please fill your current password"
+        currentLabel: "Current password"
+        newLabel: "New password"
+        new: "Fill your new password"
+        new2Label: "New password - confirmation"
+        new2: "Fill your new password as confirmation"
+        send: "Change"
+        notEqual: "New passwords are not equal"
+        notVerified: "Current password is wrong"
+
+

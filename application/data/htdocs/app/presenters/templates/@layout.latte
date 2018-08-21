@@ -1,0 +1,75 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="{$basePath}/css/lib.min.css">
+    <link rel="stylesheet" href="{$basePath}/css/app.min.css">
+    <title>{if ''!=$title}{$title|striptags} | {/if} {_main.app.name}</title>
+    {block head}{/block}
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">{_main.app.toggleNav}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" n:href="Homepage:">{_main.homepage.title}</a>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li n:class="$presenter->isLinkCurrent('Data:*') ? active">
+                    <a n:href="Data:">{_main.data.title}</a>
+                </li>
+                <li>
+                    <a href="http://adminer/?pgsql=postgres&username=nette&db=nette&ns=main"
+                    target="adminer">PostgreSQL Adminer</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle {$presenter->isLinkCurrent('Homepage:*') ? 'active'}" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{$userEntity->getEmail()} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {if $user->isInRole('admin')}
+                            <li><a n:href="User:">{_main.user.title}</a></li>
+                            <li role="separator" class="divider"></li>
+                        {/if}
+                        <li><a n:href="User:password">{_main.user.passwd.title}</a></li>
+                        <li><a n:href="Sign:out">{_main.app.sign.signOut}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        {snippet flashMessage}
+        <div class="col s12">
+            <div n:foreach="$flashes as $flash" n:class="flash, $flash->type, text-center">{$flash->message}</div>
+        </div>
+        {/snippet}
+    </div>
+    {include content}
+</div>
+
+<script src="{$basePath}/js/lib.min.js"></script>
+<script src="{$basePath}/js/app.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+sign:
+     email:
+         required: 'Prosím zadejte vás email'
+         label: "Email"
+     passwd:
+         required: 'Prosím zadejte vaše heslo.'
+         label: "Heslo"
+     send: "Přihlášení"
+     remember: "Zapamatovat si přihlášení"
+     heading: "Prosím přihlašte se"

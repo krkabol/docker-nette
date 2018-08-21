@@ -1,0 +1,103 @@
+version: '3'
+services:
+#  proxy:
+#    build: proxy
+#    container_name: proxy
+#    links:
+##      - fluentd
+##      - kibana
+#      - nette_application
+#    ports:
+#      - 80:80
+#      - 8080:8080
+#      - 5601:5601
+#    logging:
+#      driver: "fluentd"
+#      options:
+#        fluentd-address: fluentd
+#        tag: proxy
+
+#  fluentd:
+#    build: fluentd
+#    container_name: fluentd
+#    depends_on:
+#      - elasticsearch
+#    links:
+#      - elasticsearch
+#    ports:
+#      - "24224:24224"
+#      - "24224:24224/udp"
+
+#  kibana:
+#    build: kibana
+#    container_name: kibana
+#    links:
+#      - elasticsearch
+#    depends_on:
+#      - elasticsearch
+#    expose:
+#      - 5601
+
+#  elasticsearch:
+#    build: elasticsearch
+#    container_name: elasticsearch
+#    healthcheck:
+#      interval: 30s
+#      timeout: 30s
+#      retries: 3
+#    expose:
+#      - 9200
+#
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - 8181:8080
+#    logging:
+#      driver: "fluentd"
+#      options:
+#       fluentd-address: fluentd
+#       tag: adminer
+    links:
+    - postgres
+#    - fluentd
+
+  postgres:
+    build: postgres
+    container_name: postgres
+#    links:
+#      - fluentd
+#    logging:
+#     driver: "fluentd"
+#     options:
+#       fluentd-address: fluentd
+#       tag: postgres
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+        - POSTGRES_PASSWORD=nette
+        - POSTGRES_USER=nette
+
+  nette_application:
+    container_name: nette_application
+    build: application
+#    logging:
+#      driver: "fluentd"
+#      options:
+#        fluentd-address: fluentd
+#        tag: app
+    ports:
+      - 8080:80
+    links:
+    - postgres
+#    - fluentd
+    volumes:
+    - ./application/data/htdocs:/var/www/html
+
+volumes:
+  dbdata:
+
+networks:
+  default:
+    external:
+      name: dockernet

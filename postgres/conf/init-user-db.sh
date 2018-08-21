@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
+    CREATE USER nette PASSWORD 'nette' CREATEDB LOGIN ;
+
+
+CREATE DATABASE nette WITH OWNER = nette ENCODING = 'UTF8' TABLESPACE = pg_default CONNECTION LIMIT = -1;
+
+    GRANT ALL PRIVILEGES ON DATABASE nette TO nette;
+
+EOSQL
+
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" -d pladias <<-EOSQL
+    CREATE EXTENSION IF NOT EXISTS postgis;
+EOSQL

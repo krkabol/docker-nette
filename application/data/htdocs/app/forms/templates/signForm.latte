@@ -1,0 +1,13 @@
+<form n:name="signForm" class="form-signin">
+    <h2 class="form-signin-heading">{_form.sign.heading}</h2>
+    <label n:name="username" class="sr-only">{_form.sign.email.label}</label>
+    <input type="email" n:name="username" class="form-control"  placeholder="{_form.sign.email.label}" required autofocus>
+    <label n:name="password" class="sr-only">{_form.sign.passwd.label}</label>
+    <input type="password" n:name="password" class="form-control" placeholder="{_form.sign.passwd.label}" required>
+    {*<div class="checkbox">
+        <label>
+            <input type="checkbox" n:name="remember" value="remember-me">{_form.sign.remember}
+        </label>
+    </div>*}
+    <button class="btn btn-lg btn-primary btn-block" n:name="send" type="submit">{_form.sign.send}</button>
+</form>

@@ -1,0 +1,29 @@
+{layout none}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{$basePath}/css/libraries.css">
+    <link rel="stylesheet" href="{$basePath}/css/app.css">
+    <style>
+        body {
+            background-color: #eee;
+        }
+    </style>
+    <title>{if ''!=$title}{$title|striptags} | {/if} {_main.app.name}</title>
+
+</head>
+<body>
+
+<div class="container">
+    {control signInForm}
+</div>
+
+<script src="{$basePath}/js/libraries.min.js"></script>
+<script src="{$basePath}/js/app.js"></script>
+</body>
+</html>
