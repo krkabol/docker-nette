@@ -71,3 +71,9 @@ Xdebug is running in the PHP container, to use it by PHPStorm you need:
                [zdrojak.cz](https://www.zdrojak.cz/clanky/jak-byt-produktivni-v-phpstormu-cast-3/)
               [blueweb.sk](https://www.slideshare.net/blueweb_sk/akademia-x-debug)
                [forum.nette](https://forum.nette.org/cs/23891-xdebug-pouziti-u-prezenteru)
+
+
+# TBD
+* proxy
+* fluentd, elastic, kibana
+* fix bower

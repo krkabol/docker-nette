@@ -1,6 +1,6 @@
 {
   "name": "krkabol/docker-nette",
-  "description": "",
+  "description": "Docker containers stack demonstrating how to run Nette web application in develop mode by Docker.",
   "type": "project",
   "license": [
     "GNU"
