@@ -4,8 +4,8 @@ services:
 #    build: proxy
 #    container_name: proxy
 #    links:
-##      - fluentd
-##      - kibana
+#      - fluentd
+#      - kibana
 #      - nette_application
 #    ports:
 #      - 80:80
@@ -17,61 +17,61 @@ services:
 #        fluentd-address: fluentd
 #        tag: proxy
 
-#  fluentd:
-#    build: fluentd
-#    container_name: fluentd
-#    depends_on:
-#      - elasticsearch
-#    links:
-#      - elasticsearch
-#    ports:
-#      - "24224:24224"
-#      - "24224:24224/udp"
+  fluentd:
+    build: fluentd
+    container_name: fluentd
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
 
-#  kibana:
-#    build: kibana
-#    container_name: kibana
-#    links:
-#      - elasticsearch
-#    depends_on:
-#      - elasticsearch
-#    expose:
-#      - 5601
+  kibana:
+    build: kibana
+    container_name: kibana
+    links:
+      - elasticsearch
+    depends_on:
+      - elasticsearch
+    expose:
+      - 5601
 
-#  elasticsearch:
-#    build: elasticsearch
-#    container_name: elasticsearch
-#    healthcheck:
-#      interval: 30s
-#      timeout: 30s
-#      retries: 3
-#    expose:
-#      - 9200
-#
+  elasticsearch:
+    build: elasticsearch
+    container_name: elasticsearch
+    healthcheck:
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    expose:
+      - 9200
+
   adminer:
     image: adminer
     container_name: adminer
     ports:
       - 8181:8080
-#    logging:
-#      driver: "fluentd"
-#      options:
-#       fluentd-address: fluentd
-#       tag: adminer
+    logging:
+      driver: "fluentd"
+      options:
+       fluentd-address: fluentd
+       tag: adminer
     links:
     - postgres
-#    - fluentd
+    - fluentd
 
   postgres:
     build: postgres
     container_name: postgres
-#    links:
-#      - fluentd
-#    logging:
-#     driver: "fluentd"
-#     options:
-#       fluentd-address: fluentd
-#       tag: postgres
+    links:
+      - fluentd
+    logging:
+     driver: "fluentd"
+     options:
+       fluentd-address: fluentd
+       tag: postgres
     volumes:
       - "dbdata:/var/lib/postgresql/data"
     environment:
@@ -81,16 +81,16 @@ services:
   nette_application:
     container_name: nette_application
     build: application
-#    logging:
-#      driver: "fluentd"
-#      options:
-#        fluentd-address: fluentd
-#        tag: app
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: fluentd
+        tag: app
     ports:
       - 8080:80
     links:
     - postgres
-#    - fluentd
+    - fluentd
     volumes:
     - ./application/data/htdocs:/var/www/html
 
